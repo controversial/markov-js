@@ -1,0 +1,19 @@
+{
+  "name": "markov-js",
+  "version": "0.0.0",
+  "description": "Markov chains in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/controversial/markov-js.git"
+  },
+  "author": "Luke Deen Taylor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/controversial/markov-js/issues"
+  },
+  "homepage": "https://github.com/controversial/markov-js#readme"
+}
