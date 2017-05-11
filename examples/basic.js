@@ -25,4 +25,4 @@ const sentences = [
     'Jon is a smart student at school',
 ];
 const m = new Markov(sentences.map(s => s.toLowerCase().split(' ')));
-console.log(m.getFollowing('jack'));
+console.log(m.get());
