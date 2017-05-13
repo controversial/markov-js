@@ -1,5 +1,5 @@
-const Markov = require('..');
-const runner = require('./runner');
+const Markov = require('../..');
+const runner = require('../runner');
 
 const sentences = [
   'The boy plays',
