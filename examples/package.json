@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "cli-table": "^0.3.1"
+  }
+}

@@ -1,4 +1,5 @@
 const Markov = require('..');
+const runner = require('./runner');
 
 const sentences = [
   'The boy plays',
@@ -24,5 +25,6 @@ const sentences = [
   'Green apples are everywhere',
   'Jon is a smart student at school',
 ];
+
 const m = new Markov(sentences.map(s => s.toLowerCase().split(' ')));
-console.log(m.get());
+runner(m);
