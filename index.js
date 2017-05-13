@@ -1,5 +1,5 @@
 class MarkovElement {
-  constructor(value, isLast=false) {
+  constructor(value, isLast = false) {
     this.value = value;
     this.isLast = isLast;
   }
