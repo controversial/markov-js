@@ -20,7 +20,7 @@ const chars = {
 };
 
 
-module.exports = function runner(markov, iterations = 10) {
+function multiRunner(markov, iterations) {
   const table = new Table({ chars, style: { 'padding-left': 0, 'padding-right': 0 } });
 
   for (let i = 1; i <= iterations; i += 1) {
@@ -39,4 +39,16 @@ module.exports = function runner(markov, iterations = 10) {
 
   // Output
   console.log(table.toString());
+}
+
+function singleRunner(markov) {
+  const startTime = new Date();
+  const output = markov.get().join(' ');
+  const timeElapsed = ((new Date() - startTime) / 1000).toFixed(3);
+
+  console.log(chalk.blue(timeElapsed), output);
+}
+
+module.exports = function runner(markov, iterations = 10) {
+  (iterations > 1 ? multiRunner : singleRunner)(markov, iterations);
 };
