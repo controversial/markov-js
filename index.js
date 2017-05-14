@@ -47,7 +47,7 @@ class Markov {
   // Make a chain
   get() {
     const out = [this.getStart()];
-    while (true) {
+    for (;;) {
       const recent = out[out.length - 1];
       // If the most recent item is the end of a sentence, return all the values in the chain
       if (recent.isLast) return out.map(n => n.value);
