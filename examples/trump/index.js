@@ -2,6 +2,7 @@ const Markov = require('../..');
 const runner = require('../runner');
 const fs = require('fs');
 const Twit = require('twit');
+const unescape = require('unescape');
 const bigInt = require('big-integer');
 
 const keys = JSON.parse(fs.readFileSync(`${__dirname}/keys.json`).toString());
@@ -41,7 +42,7 @@ function getTweets(maxId, iteration, callback) {
 }
 
 getTweets(undefined, 1, () => {
-  const data = tweets.map(tweet => tweet.toLowerCase().split(' ').filter(n => !n.includes('t.co/')));
+  const data = tweets.map(tweet => unescape(tweet).split(' ').filter(n => !n.includes('t.co/')));
   const m = new Markov(data);
   runner(m, 100);
 });
