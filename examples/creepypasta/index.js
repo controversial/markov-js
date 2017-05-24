@@ -16,10 +16,9 @@ request
         .map(p => p.textContent)
         .join(' ');
     });
-    console.log(stories[0]);
     const allSentences = [].concat(...stories.map(story => story.split('.')));
     // Put into markov chain
     const data = allSentences.map(sentence => sentence.split(' '));
     const m = new Markov(data);
-    runner(m, 1);
+    runner(m, 25);
   });
