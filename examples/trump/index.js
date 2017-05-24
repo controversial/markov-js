@@ -42,7 +42,9 @@ function getTweets(maxId, iteration, callback) {
 }
 
 getTweets(undefined, 1, () => {
-  const data = tweets.map(tweet => unescape(tweet).split(' ').filter(n => !n.includes('t.co/')));
+  const data = tweets
+    .map(tweet => unescape(tweet).split(/\s+/))
+    .filter(n => !n.includes('t.co/'));
   const m = new Markov(data);
   runner(m, 100);
 });
