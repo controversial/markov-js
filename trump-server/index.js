@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const Twit = require('twit');
+const bigInt = require('big-integer');
 
 // If keys.json is present, load its contents into environment variables
 const keypath = `${__dirname}/keys.json`;
@@ -24,8 +25,15 @@ const t = new Twit({
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('success');
+app.set('json spaces', 2);
+
+app.get('/:page?', (req, res) => {
+  const page = req.params.page;
+  t.get('statuses/user_timeline', { screen_name: 'realDonaldTrump', count: 200 })
+    .then((result) => {
+      const tweets = result.data.map(tweet => tweet.text);
+      res.send(tweets);
+    });
 });
 
 const args = process.argv.slice(2);
