@@ -3,6 +3,9 @@
 # Twitter API keys
 keys.json
 
+# npm lockfiles
+package-lock.json
+
 # -------------------------------------------------------------------------------------
 
 # Logs
