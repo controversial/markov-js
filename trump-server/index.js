@@ -34,7 +34,8 @@ app.get('/:page?', (req, res) => {
     .then((result) => {
       const tweets = result.data
         .map(tweet => tweet.text)
-        .map(tweet => unescape(tweet));
+        .map(tweet => unescape(tweet))
+        .map(tweet => tweet.replace(/\s+/g, ' '));
       res.send(tweets);
     });
 });
