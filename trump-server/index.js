@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const Twit = require('twit');
+const unescape = require('unescape');
 const bigInt = require('big-integer');
 
 // If keys.json is present, load its contents into environment variables
@@ -31,7 +32,9 @@ app.get('/:page?', (req, res) => {
   const page = req.params.page;
   t.get('statuses/user_timeline', { screen_name: 'realDonaldTrump', count: 200 })
     .then((result) => {
-      const tweets = result.data.map(tweet => tweet.text);
+      const tweets = result.data
+        .map(tweet => tweet.text)
+        .map(tweet => unescape(tweet));
       res.send(tweets);
     });
 });
