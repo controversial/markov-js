@@ -1,3 +1,11 @@
+/*
+ * TODO: caching
+ * - Store what the max_ids for each page are in a tempfile
+ * - After a request is served for a given page, update in the background:
+ *   - check if the most recent tweet has changed
+ *   - If it has, update the max tweet IDs for all pages.
+ */
+
 const express = require('express');
 const fs = require('fs');
 const Twit = require('twit');
